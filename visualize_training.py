@@ -26,10 +26,13 @@ for index in range(len(nodes_1)):
     model.add(Dense(1, activation='linear', name='output_layer'))
     model.compile(loss='mean_squared_error', optimizer='adam')
 
-    RUN_NAME = 'run ' + str(index) + ' with ' \
-               + str(nodes_1[index]) + '--' \
-               + str(nodes_2[index]) + '--' \
-               + str(nodes_3[index]) + ' nodes'
+
+    RUN_NAME = 'run {} with {}--{}--{} nodes'\
+        .format(index,
+        nodes_1[index],
+        nodes_2[index],
+        nodes_3[index])
+
 
     # Create a TensorBoard logger
     logger = keras.callbacks.TensorBoard(
